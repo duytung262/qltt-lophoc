@@ -52,7 +52,7 @@ jobs:
     name: 🚀 Deploy lên Render.com
     runs-on: ubuntu-latest
     needs: build-and-push                   # Chạy SAU khi build thành công
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'  # Chỉ deploy khi merge vào main
 
     steps:
       - name: 🔔 Trigger Render Deploy Hook
