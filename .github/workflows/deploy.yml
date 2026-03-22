@@ -3,10 +3,10 @@ name: CI/CD Pipeline - Build & Deploy
 on:
   push:
     branches:
-      - main          # Tự động deploy khi push lên main
+      - master          # Tự động deploy khi push lên main
   pull_request:
     branches:
-      - main          # Chỉ build/test khi có PR (không deploy)
+      - master    # Chỉ build/test khi có PR (không deploy)
 
 env:
   DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
