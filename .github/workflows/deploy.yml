@@ -3,10 +3,10 @@ name: CI/CD Pipeline - Build & Deploy
 on:
   push:
     branches:
-      - master          # Tự động deploy khi push lên main
+      - main          # Tự động deploy khi push lên main
   pull_request:
     branches:
-      - master    # Chỉ build/test khi có PR (không deploy)
+      - main    # Chỉ build/test khi có PR (không deploy)
 
 env:
   DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
@@ -52,7 +52,7 @@ jobs:
     name: 🚀 Deploy lên Render.com
     runs-on: ubuntu-latest
     needs: build-and-push                   # Chạy SAU khi build thành công
-    if: github.event_name == 'push' && github.ref == 'refs/heads/master'  # Chỉ deploy khi merge vào main
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'  # Chỉ deploy khi merge vào main
 
     steps:
       - name: 🔔 Trigger Render Deploy Hook
